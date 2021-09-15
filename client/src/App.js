@@ -1,17 +1,15 @@
+import "./App.css";
+import CreateHero from "./components/CreateHero/CreateHero";
+import ListHero from "./components/ListHero/ListHero";
 
-
-import './App.css';
-import CreateHero from './components/CreateHero/CreateHero';
-import ListHero from './components/ListHero/ListHero';
-import Navbar from './components/Navbar/Navbar';
-
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <CreateHero/>
-      <ListHero/>
+      <Navbar />
+      <CreateHero />
+      <ListHero />
     </div>
   );
 }

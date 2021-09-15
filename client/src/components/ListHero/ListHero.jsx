@@ -1,193 +1,122 @@
-import React, { useCallback } from 'react'
-import axios from 'axios'
-import './ListHero.scss'
-import hero from  '../../images/hero.jpg'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./ListHero.scss";
+import hero from "../../images/hero.jpg";
+import foxi from "../../images/foxi.jpg";
+import klara from "../../images/klara.jpg";
+import man from "../../images/man.jpg";
+import superman from "../../images/superman.jpg";
 
-const ListHero =()=>{
+const ListHero = () => {
+  const [loading, setLoading] = useState(false);
+  const [heroArray, setHeroArray] = useState(null);
+  useEffect(() => {
+    getHero();
+  }, []);
 
-    const getHero = useCallback(async()=>{
-        try {
-           await axios.get('/api/info',{
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            // params:{_id}
-           }) 
-           .then((response)=>console.log(response))
-        } catch (error) {
-            console.log(error.message) 
-        }
-    },)
-    // getHero()
-return(
-    <div className=" list">
-        <h3>Список Супергероев</h3>
-        <div className=' flex '>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            <ul className=' flexing '> 
-                <div className='icon'>
-                <i className="material-icons blue-text">create</i>
-                <i className="material-icons orange-text">delete</i>
-                </div>
-                <li className='listing list_item'>
-                  <img className="hero" src={hero} alt="супермен" width="150"/>  
-                  
-                    </li> 
-               <li className='listing'>Nickname: <p className='info'>Sus</p></li> 
-               <li className='listing'>Real_name:<p className='info'>sedrdre</p></li> 
-               <li className='listing'>Origin_description: <p className='info'>he waees born Kal-El on the planet Krypton, before being rocketed to</p> </li> 
-               <li className='listing'>Superpowers:<p className='info'>solar eneergy absorption and healing factor, solar flare and heat vision</p></li> 
-               <li className='listing'>Catch_phrase:<p className='info'>Look, uep in the sky</p></li> 
-              
-            </ul>
-            
-            
-        
+  async function getHero() {
+    try {
+      setLoading(true);
+      const heroResponse = await axios.get("/api/info", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setHeroArray(heroResponse.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  async function removeHero(id) {
+    try {
+      await axios
+        .delete(
+          `/api/delete${id}`,
+          { id },
+          {
+            headers: { "Content-Type": "applicatiom/json" },
+          }
+        )
+        .then(() => getHero());
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  if (loading) {
+    return (
+      <div className="preloader-wrapper big active">
+        <div className="spinner-layer spinner-blue-only">
+          <div className="circle-clipper left">
+            <div className="circle"></div>
+          </div>
+          <div className="gap-patch">
+            <div className="circle"></div>
+          </div>
+          <div className="circle-clipper right">
+            <div className="circle"></div>
+          </div>
         </div>
+      </div>
+    );
+  }
+  return (
+    <div className=" list">
+      <h3>Список Супергероев</h3>
+      <div className=" flex ">
+        <ul className=" flexing ">
+          {heroArray &&
+            heroArray.map((el, index) => {
+              return (
+                <li key={index} className="list_item">
+                  <div className="open">
+                    <p className="index">{index + 1}</p>
+                    <div className="icon">
+                      <i className="material-icons blue-text">create</i>
+                      <i
+                        className="material-icons red-text "
+                        onClick={() => removeHero(el._id)}
+                      >
+                        delete
+                      </i>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="listing">
+                      <img
+                        className="hero"
+                        // src={Math.random({hero && foxi && klara && man && superman
+                        // })}
+                        src={foxi}
+                        alt="супермен"
+                        width="150"
+                      />
+                    </span>
+
+                    <p className="listing">
+                      Nickname: <span className="info">{el.nickname}</span>
+                    </p>
+                    <p className="listing">
+                      Real_name:<span className="info">{el.real_name}</span>
+                    </p>
+                    <p className="listing">
+                      Origin_description:{" "}
+                      <span className="info">{el.origin_description}</span>{" "}
+                    </p>
+                    <p className="listing">
+                      Superpowers:<span className="info">{el.superpowers}</span>
+                    </p>
+                    <p className="listing">
+                      Catch_phrase:
+                      <span className="info">{el.catch_phrase}</span>
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
     </div>
-)
-}
-export default ListHero
+  );
+};
+export default ListHero;
