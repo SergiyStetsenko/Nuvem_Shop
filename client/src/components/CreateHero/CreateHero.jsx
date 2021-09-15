@@ -2,21 +2,21 @@ import axios from "axios";
 import React, { useState } from "react";
 import "./CreateHero.scss";
 
-export default function CreateHero() {
-  const [text, setText] = useState({
+export default function CreateHero({ setisNeedUpdate, isNeedUpdate }) {
+  const initialState = {
     nickname: "",
     real_name: "",
     origin_description: "",
     superpowers: "",
     catch_phrase: "",
-  });
+  };
+  const [text, setText] = useState(initialState);
 
   const changeHendler = (event) => {
     setText({ ...text, [event.target.name]: event.target.value });
   };
 
   async function createHeros() {
-    console.log(`text`, text);
     try {
       await axios
         .post(
@@ -26,16 +26,22 @@ export default function CreateHero() {
             headers: { "Content-Type": "application/json" },
           }
         )
-        .then((response) => console.log(response));
+        .then((response) => response);
+      setisNeedUpdate(!isNeedUpdate);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      setText(initialState);
     }
   }
 
   return (
     <div className="container">
       <h3>Добавить героя</h3>
-      <form className="form form-login" onSubmit={(e) => e.preventDefault()}>
+      <form
+        className="form form-login"
+        // onSubmit={(e) => e.preventDefault()}
+      >
         <div className="row">
           <div className="input-fiel col s12">
             <label className="input" htmlFor="input">
@@ -109,7 +115,7 @@ export default function CreateHero() {
           </div>
           <div className="row">
             <button
-              onClick={createHeros}
+              onClick={(e) => createHeros(e)}
               className="btn-floating btn-large waves-effect waves-light red"
             >
               <i className="large material-icons">add</i>

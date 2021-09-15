@@ -2,17 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ListHero.scss";
 import hero from "../../images/hero.jpg";
-import foxi from "../../images/foxi.jpg";
-import klara from "../../images/klara.jpg";
-import man from "../../images/man.jpg";
-import superman from "../../images/superman.jpg";
 
-const ListHero = () => {
+const ListHero = ({ isNeedUpdate }) => {
   const [loading, setLoading] = useState(false);
   const [heroArray, setHeroArray] = useState(null);
   useEffect(() => {
     getHero();
-  }, []);
+  }, [isNeedUpdate]);
 
   async function getHero() {
     try {
@@ -85,9 +81,7 @@ const ListHero = () => {
                     <span className="listing">
                       <img
                         className="hero"
-                        // src={Math.random({hero && foxi && klara && man && superman
-                        // })}
-                        src={foxi}
+                        src={hero}
                         alt="супермен"
                         width="150"
                       />
